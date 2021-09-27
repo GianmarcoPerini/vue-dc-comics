@@ -1,49 +1,73 @@
 <template>
     <footer>
-        <div class="foot-block">
-            <div class="foot-voices" v-for="(el, i) in footerMenu" :key="i">
-                    <h3>{{el.title}}</h3>
-                    <p v-for="el in el.components" :key="el">{{el}}</p>
+        <div class="foot-wrap">
+            <div>
+                <nav>
+                    <h2>DC CCOMICS</h2>
+                    <DCcomics /> 
+                </nav>
+
+                <nav class="mt-1">
+                    <h2>SHOP</h2>
+                    <Shop />
+                </nav>
             </div>
+            <div>
+                <nav class="m-1">
+                    <h2>DC</h2>
+                    <DC />
+                </nav>
+            </div>
+            <div>
+                <nav>
+                    <h2>SITE</h2>
+                    <site />
+                </nav>
+            </div>
+
+
+            <img src="../assets/dc-logo.png" alt="">
         </div>
 
-        <img src="../assets/dc-logo.png" alt="">
 
+        <contacts />
+        
     </footer>
 </template>
 
 <script>
+import DCcomics from './footElement/DCcomics.vue'
+import Shop from './footElement/shop.vue'
+import DC from './footElement/DC.vue'
+import Site from './footElement/site.vue'
+import Contacts from './footElement/contacts.vue'
+
 export default {
     name: 'Footer',
-    data: function(){
-        return {
-            footerMenu: [
-                {
-                    title: 'DC COMICS',
-                    components: ['Characters','Comics','Movies','TV','Games','Videos','News']
-                },
-                {
-                    title: 'SHOP',
-                    components: ['Shop DC','Shop DC Collectibles']
-                },
-                {
-                    title: 'DC',
-                    components: ['Terms Of Us','Privacy police (New)','Add Choise','Advertising','Jobs','Subscriptions','Talente Workshop','CPSC Certificates','Ratings','Shop Help','Contacts']
-                },
-                {
-                    title: 'SITE',
-                    components: ['DC','MAD Magazine','DC Kids','DC Universe','DC Power Visa']
-                }
-            ]
-        }
+    components: {
+        DCcomics,
+        Shop,
+        DC,
+        Site,
+        Contacts,
     }
+
 }
 </script>
 
 <style lang="scss" scoped>
 @import './general.scss';
 
-footer{
+.mt-1{
+    margin-top: 15px;
+}
+
+.m-1{
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.foot-wrap{
 
     background-image: url(../assets/footer-bg.jpg);
     background-position: center;
@@ -51,10 +75,23 @@ footer{
     background-size: cover;
     position: relative;
     overflow: hidden;
-    padding-left: 40px;
-    height: 400px;
     display: flex;
-    align-items: center;
+    padding: 50px 0 50px 100px;
+    
+    nav{
+        // margin-left: 50px;
+
+        h2{
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        ul{
+            list-style: none;
+            font-size: .8rem;
+        }
+    }
+
 
     img{
         position: absolute;
@@ -66,41 +103,6 @@ footer{
         mix-blend-mode: lighten;
         z-index: 0;
     }
-
-    .foot-block{
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: column;
-        align-items: flex-start;
-        height: 80%;
-        width: max-content;
-
-        .foot-voices{
-            padding: 30px;
-            z-index: 1;
-        
-                h3{
-                    margin-bottom: 10px;
-                    color: white;
-                    font-size: 1.4rem;
-                }
-                
-                p{
-                    color: $footLinks;
-                    font-size: .7em;
-
-                        &:hover{
-                            color: white;
-                            cursor: pointer;
-                            text-decoration: underline;
-                        }
-                }
-        }
-    }
-
-
 }
-
-
 
 </style>
