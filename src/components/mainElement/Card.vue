@@ -21,9 +21,9 @@ export default {
 }
 </script>
 
-<style lang="scss" >
+<style lang="scss">
     .card{
-        margin: 20px 10px;
+        margin: 10px;
         width: calc(100% /6 - 20px);
         transition: transform 100ms ease-in-out;
         
@@ -32,7 +32,7 @@ export default {
         }
 
         p{
-            font-size: .85rem;
+            font-size: .75rem;
             color: white;
             text-transform: uppercase;
             margin-top: 9px;

@@ -79,7 +79,7 @@ export default {
     padding: 50px 0 50px 100px;
     
     nav{
-        // margin-left: 50px;
+        z-index: 1;
 
         h2{
             color: white;
@@ -102,6 +102,7 @@ export default {
         opacity: .5;
         mix-blend-mode: lighten;
         z-index: 0;
+        pointer-events: none;
     }
 }
 
